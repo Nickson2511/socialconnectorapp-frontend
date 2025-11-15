@@ -223,6 +223,16 @@ What it does:
 | Build        | Ensures code compiles      |
 
 
+   Workflow Going Forward
+
+Feature branches should branch from dev instead of main.
+
+When features are complete, merge feature branches into dev(on Lead Dev can do this, only push to your respective branch)
+
+After testing on dev, merge dev into main for production/stable release.(Only lead dev can do this)
+
+
+
 🔐 Code Quality Tools
 ✔ ESLint
 ✔ TypeScript strict mode
