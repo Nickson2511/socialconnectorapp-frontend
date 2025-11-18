@@ -19,7 +19,7 @@ const Header: React.FC<HeaderProps> = ({ toggleTheme, currentMode }) => {
         <header className="landing-root">
             <nav className="navbar">
                 <div className="navbar-left">
-                    <div className="logo">SocialConnector</div>
+                    <div className="logo">connectsMe</div>
                 </div>
 
                 {/* Desktop links */}

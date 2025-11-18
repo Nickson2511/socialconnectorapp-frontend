@@ -1,11 +1,24 @@
 import React from "react";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Typography, Card } from "@mui/material";
 import useSlideshow from "../../hooks/useSlideshow";
 
 const slides = [
     { src: "/assets/brands/hero-1.webp", alt: "Professional networking" },
     { src: "/assets/brands/hero-2.webp", alt: "Find collaborators" },
-    { src: "/assets/brands/hero-3.jpg", alt: "Grow your career" }
+    { src: "/assets/brands/hero-3.jpg", alt: "Grow your career" },
+    { src: "/assets/brands/medical1.jpg", alt: "Connect with professional doctors" },
+    { src: "/assets/brands/nurse1.jpeg", alt: "Connect with professional nurses" },
+    { src: "/assets/brands/nurse2.jpeg", alt: "Connect with professional nurses" },
+    { src: "/assets/brands/pilot1.jpeg", alt: "Connect with professional pilots" },
+    { src: "/assets/brands/pilot2.webp", alt: "Connect with professional pilots" },
+    { src: "/assets/brands/pilot3.jpeg", alt: "Connect with professional pilots" },
+    { src: "/assets/brands/presenter1.jpeg", alt: "Connect with professional presenters" },
+    { src: "/assets/brands/presenter2.jpeg", alt: "Connect with professional presenters" },
+    { src: "/assets/brands/presenter3.jpeg", alt: "Connect with professional presenters" },
+    { src: "/assets/brands/catering1.jpg", alt: "Connect with professional Chefs " },
+    { src: "/assets/brands/catering2.jpg", alt: "Connect with professional Chefs" },
+    { src: "/assets/brands/catering3.jpg", alt: "Connect with professional Chefs" },
+    { src: "/assets/brands/catering4.jpg", alt: "Connect with professional Chefs" }
 ];
 
 const Hero: React.FC = () => {
@@ -14,20 +27,34 @@ const Hero: React.FC = () => {
     return (
         <section className="landing-root">
             <div className="hero">
-                <div className="hero-left">
-                    <div className="kicker">SocialConnector</div>
-                    <Typography component="h1" className="hero-title">
-                        Connect. Collaborate. Grow — a modern LinkedIn alternative.
-                    </Typography>
-                    <Typography className="hero-sub">
-                        Build meaningful professional relationships, discover gigs and projects, and showcase your work in visually rich profiles.
-                    </Typography>
 
-                    <Box sx={{ display: "flex", gap: 1 }}>
-                        <Button variant="contained" size="large" aria-label="Get started">Get Started</Button>
-                        <Button variant="outlined" size="large" aria-label="Learn more">Learn More</Button>
-                    </Box>
-                </div>
+
+                <Card className="hero-card" elevation={6}>
+                    <div className="hero-card-inner">
+                        <div className="kicker">connectsMe</div>
+
+                        <Typography component="h1" className="hero-title">
+                            Connect. Collaborate. Grow.
+                        </Typography>
+
+                        <Typography className="hero-sub">
+                            A modern way to reach your connections—whether you're a student,
+                            job seeker, traveller, or creator. connectsMe enhances professional
+                            communities and removes the limitations of traditional platforms.
+                        </Typography>
+
+                        <Typography className="hero-desc">
+                            Register for free and access features like job applications,
+                            social groups, migration/settlement support, project collaborators,
+                            communities, and national-wide digital networking.
+                        </Typography>
+
+                        <Box sx={{ display: "flex", gap: 1, mt: 3 }}>
+                            <Button variant="contained" size="large">Get Started</Button>
+                            <Button variant="outlined" size="large">Learn More</Button>
+                        </Box>
+                    </div>
+                </Card>
 
                 <div className="hero-visual" aria-hidden>
                     {slides.map((s, i) => (
