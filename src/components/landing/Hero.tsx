@@ -28,7 +28,6 @@ const Hero: React.FC = () => {
         <section className="landing-root">
             <div className="hero">
 
-
                 <Card className="hero-card" elevation={6}>
                     <div className="hero-card-inner">
                         <div className="kicker">connectsMe</div>
@@ -49,13 +48,64 @@ const Hero: React.FC = () => {
                             communities, and national-wide digital networking.
                         </Typography>
 
-                        <Box sx={{ display: "flex", gap: 1, mt: 3 }}>
-                            <Button variant="contained" size="large">Get Started</Button>
-                            <Button variant="outlined" size="large">Learn More</Button>
+                        {/* Updated Buttons */}
+                        <Box sx={{ display: "flex", gap: 2, mt: 3, flexWrap: "wrap" }}>
+                            
+                            {/* Primary Button */}
+                            <Button
+                                variant="contained"
+                                size="large"
+                                sx={{
+                                    borderRadius: "999px",
+                                    padding: "12px 32px",
+                                    fontSize: "1rem",
+                                    fontWeight: 600,
+                                    textTransform: "none",
+                                    whiteSpace: "nowrap",
+                                    backgroundColor: "#2563eb",
+                                    transition: "all .25s ease",
+                                    boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+                                    "&:hover": {
+                                        backgroundColor: "#1e40af",
+                                        transform: "translateY(-2px)",
+                                        boxShadow: "0 8px 16px rgba(0,0,0,0.20)",
+                                    },
+                                }}
+                            >
+                                Get Started
+                            </Button>
+
+                            {/* Outline Button */}
+                            <Button
+                                variant="outlined"
+                                size="large"
+                                sx={{
+                                    borderRadius: "999px",
+                                    padding: "12px 32px",
+                                    fontSize: "1rem",
+                                    fontWeight: 600,
+                                    textTransform: "none",
+                                    whiteSpace: "nowrap",
+                                    borderWidth: "2px",
+                                    color: "#2563eb",
+                                    borderColor: "#2563eb",
+                                    transition: "all .25s ease",
+                                    "&:hover": {
+                                        borderColor: "#1e40af",
+                                        color: "#1e40af",
+                                        transform: "translateY(-2px)",
+                                        backgroundColor: "rgba(37,99,235,0.08)",
+                                    },
+                                }}
+                            >
+                                Learn More
+                            </Button>
+
                         </Box>
                     </div>
                 </Card>
 
+                {/* Hero rotating slideshow */}
                 <div className="hero-visual" aria-hidden>
                     {slides.map((s, i) => (
                         <div
@@ -67,9 +117,24 @@ const Hero: React.FC = () => {
                         />
                     ))}
                 </div>
+
             </div>
         </section>
     );
 };
 
 export default Hero;
+
+
+
+
+
+
+
+
+
+
+
+
+
+

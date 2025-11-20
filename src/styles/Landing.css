@@ -28,11 +28,28 @@
     max-width: 650px;
 }
 
+/* Ensuring buttons never wrap into 2 rows */
+.hero-card .MuiButton-root {
+    min-width: fit-content;
+}
+
+
 @media (max-width: 900px) {
     .hero {
         grid-template-columns: 1fr;
         padding: 2rem 0;
     }
+}
+
+@media (max-width: 600px) {
+    .hero-card {
+        padding: 2.2rem;
+    }
+
+    .hero-visual {
+        height: 280px;
+    }
+
 }
 
 .hero-left {
@@ -87,6 +104,8 @@
     opacity: 1;
     transform: scale(1);
 }
+
+
 
 /* Marquee / Brands */
 .brands-marquee {
@@ -188,23 +207,50 @@
 
 /* CTA */
 .cta {
-    padding: 2rem;
-    border-radius: 14px;
-    background: linear-gradient(90deg, #4f46e5, #06b6d4);
+    padding: 2.8rem;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
     color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem;
-    margin: 2rem 0;
+    gap: 2rem;
+    margin: 3rem 0;
+    box-shadow: 0 20px 40px rgba(0, 0, 80, 0.25);
 }
+
+
+.cta-text {
+    flex: 1;
+    min-width: 260px;
+}
+
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-shrink: 0;
+}
+
 
 @media (max-width: 700px) {
     .cta {
         flex-direction: column;
         text-align: center;
+        padding: 2rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .cta-buttons .MuiButton-root {
+        width: 100%;
     }
 }
+
+
 
 /* small helpers */
 .kicker {
@@ -326,11 +372,28 @@
     }
 }
 
+@media (max-width:600px) {
+    .connectsme-card {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .connectsme-img {
+        flex: unset;
+        width: 100%;
+        height: 180px;
+    }
+
+    .connectsme-img img {
+        height: 100%;
+    }
+}
+
 .connectsme-card {
     background: var(--color-bg);
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
     display: flex;
     gap: 1rem;
     padding: 1rem;
@@ -339,7 +402,7 @@
 
 .connectsme-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 24px 55px rgba(0,0,0,0.12);
+    box-shadow: 0 24px 55px rgba(0, 0, 0, 0.12);
 }
 
 .connectsme-img {
@@ -389,4 +452,101 @@
 
 .variant-5 {
     background: linear-gradient(180deg, #ffffff, #fdf2f8);
+}
+
+
+/* =======================
+    Footer
+========================== */
+.footer {
+    width: 100%;
+    margin-top: 5rem;
+    padding: 4rem 1rem;
+    background: var(--color-bg);
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.footer-content {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem;
+}
+
+@media (max-width: 900px) {
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+.footer-logo {
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.8rem;
+}
+
+.footer-text {
+    color: var(--color-text-soft);
+    margin-bottom: 1.2rem;
+    max-width: 380px;
+    line-height: 1.6;
+}
+
+.footer-heading {
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+}
+
+.footer-link {
+    display: block;
+    color: var(--color-text-soft);
+    margin-bottom: 0.5rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+    color: var(--color-primary);
+}
+
+.footer-socials {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+}
+
+.footer-icon {
+    color: var(--color-text);
+    transition: 0.3s;
+}
+
+.footer-icon:hover {
+    color: var(--color-primary);
+}
+
+.footer-bottom {
+    max-width: var(--max-width);
+    margin: 2.5rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    color: var(--color-text-soft);
+}
+
+.footer-copy {
+    font-size: 0.9rem;
+}
+
+.footer-country {
+    font-size: 0.9rem;
 }
