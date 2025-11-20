@@ -25,8 +25,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ toggleTheme, currentMode }) =
             <BrandsMarquee />
             <Testimonials />
             <ConnectsMeDeepSection />
-            <CTA />
             <ConnectsMeEngageSection />
+            <CTA />
+            
             <FooterLanding />
         </main>
     );
