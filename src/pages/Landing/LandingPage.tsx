@@ -8,6 +8,7 @@ import CTA from "../../components/landing/CTA";
 import FooterLanding from "../../components/landing/FooterLanding";
 import "../../styles/Landing.css";
 import ConnectsMeDeepSection from "../../components/landing/ConnectsMeDeepSection";
+import ConnectsMeEngageSection from "../../components/landing/ConnectsMeEngageSection";
 
 
 interface LandingPageProps {
@@ -25,6 +26,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ toggleTheme, currentMode }) =
             <Testimonials />
             <ConnectsMeDeepSection />
             <CTA />
+            <ConnectsMeEngageSection />
             <FooterLanding />
         </main>
     );
