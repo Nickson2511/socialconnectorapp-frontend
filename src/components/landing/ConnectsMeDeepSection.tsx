@@ -71,7 +71,7 @@ const ConnectsMeDeepSection: React.FC = () => {
 
             <div className="connectsme-cards">
                 {deepCards.map((card, index) => (
-                    <div
+                    <div 
                         key={index}
                         className={`connectsme-card variant-${(index % 5) + 1}`}
                     >
@@ -83,9 +83,29 @@ const ConnectsMeDeepSection: React.FC = () => {
                             <h3>{card.title}</h3>
                             <p>{card.text}</p>
 
-                            <Button variant="contained" size="small">
+                            {/* Modern Responsive Button */}
+                            <Button
+                                variant="contained"
+                                sx={{
+                                    borderRadius: '999px',
+                                    padding: '10px 22px',
+                                    fontWeight: 600,
+                                    fontSize: '0.9rem',
+                                    textTransform: 'none',
+                                    whiteSpace: 'nowrap',
+                                    width: 'fit-content',
+                                    backgroundColor: '#2563eb',
+                                    transition: 'all .25s ease',
+                                    '&:hover': {
+                                        backgroundColor: '#1e40af',
+                                        transform: 'translateY(-2px)',
+                                        boxShadow: '0 6px 12px rgba(0,0,0,0.15)'
+                                    }
+                                }}
+                            >
                                 {card.cta}
                             </Button>
+
                         </div>
                     </div>
                 ))}
@@ -95,3 +115,9 @@ const ConnectsMeDeepSection: React.FC = () => {
 };
 
 export default ConnectsMeDeepSection;
+
+
+
+
+
+
