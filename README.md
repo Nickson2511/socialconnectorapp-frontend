@@ -98,6 +98,76 @@ See ./env.example for default fields.
 
 
 
+📚 SocialConnectorApp — Git & Team Collaboration Guide
+
+1️⃣ Prerequisites
+
+Git installed: https://git-scm.com/downloads
+Node.js & npm (latest LTS recommended)
+VSCode or another IDE with ESLint, Prettier, and GitLens installed
+
+Familiarity with Git branching, commits, and PRs is recommended. If you’re new to Git, check the official docs:
+
+Pro Git Book
+GitHub Docs
+
+2️⃣ Repository Branching Strategy
+
+To maintain a stable, collaborative workflow, this project uses the following branching model:
+
+| Branch       | Purpose                                       |
+| ------------ | --------------------------------------------- |
+| **main**     | Production-ready, stable code only            |
+| **dev**      | Integration branch for all completed features |
+| **feature/** | Individual features; always branch from `dev` |
+
+
+Feature Branch Naming
+
+feature/<short-feature-name>
+
+Examples:
+
+feature/login-auth-nick
+feature/posts-feed-nick
+feature/dark-mode-toggle-nick
+
+Never branch from main. Feature branches always branch from dev
+
+3️⃣ Git Workflow
+
+Sync with dev branch
+
+git fetch origin
+git checkout dev
+git pull
+
+
+Create a feature branch
+
+git checkout -b feature/<feature-name>
+
+Develop your feature
+  follow folder structure, coding standards, and MUI/RTK practices
+
+Stage & commit changes
+   git add .
+   git commit -m "feat(auth): add JWT login flow"
+
+   Commit messages should be clear, concise, and scoped.
+
+   Recommended format:
+      Types: feat, fix, chore, docs, refactor
+
+   Push feature branch
+     git push origin feature/<feature-name>
+
+ Open a Pull Request (PR) → dev(Nickson2511 is responsible for this)
+     He will : (Assign reviewers Add description: what changed, why, and screenshots if needed)
+
+
+
+
 📡 API Layer (RTK Query)
 
 All API calls begin from the base API:
