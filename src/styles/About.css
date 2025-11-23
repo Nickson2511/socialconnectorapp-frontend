@@ -1,0 +1,180 @@
+
+.about-hero {
+    padding: 4rem 1rem;
+    background: linear-gradient(180deg, rgba(99, 102, 241, 0.04), transparent 40%);
+}
+
+.about-hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 2rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-hero-copy .about-title {
+    margin-top: 0.25rem;
+    line-height: 1.05;
+}
+
+.about-sub {
+    margin-top: 1rem;
+    color: #374151;
+}
+
+.about-hero-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-stats-card {
+    width: 100%;
+    border-radius: 16px;
+    padding: 1rem;
+}
+
+.about-stats {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.about-stat {
+    text-align: center;
+    min-width: 100px;
+}
+
+.about-stat-value {
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+.about-stat-label {
+    font-size: 0.85rem;
+    color: #6b7280;
+}
+
+.about-section {
+    padding: 3rem 1rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.mv-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.mv-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.25rem;
+    box-shadow: 0 6px 18px rgba(14, 22, 39, 0.04);
+}
+
+.mv-text {
+    margin-top: 0.5rem;
+    color: #374151;
+}
+
+/* Team */
+.team-grid {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.team-card {
+    display: flex;
+    gap: 0.9rem;
+    align-items: center;
+    background: white;
+    padding: 0.8rem;
+    border-radius: 10px;
+    min-width: 220px;
+    box-shadow: 0 6px 18px rgba(14, 22, 39, 0.04);
+}
+
+.section-title {
+    margin-bottom: 1rem;
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    margin-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.timeline-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    align-items: flex-start;
+}
+
+.timeline-item.left .timeline-year {
+    background: #eef2ff;
+}
+
+.timeline-item.right .timeline-year {
+    background: #f0fdf4;
+}
+
+.timeline-year {
+    min-width: 84px;
+    text-align: center;
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+/* FAQ */
+.faq-grid {
+    margin-top: 1rem;
+}
+
+/* CTA */
+.about-cta {
+    padding: 3rem 1rem;
+    max-width: 1000px;
+    margin: 0 auto 3rem;
+}
+
+.about-cta-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.about-cta-actions {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+/* Small screens */
+@media (max-width: 900px) {
+    .about-hero-inner {
+        grid-template-columns: 1fr;
+    }
+
+    .mv-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-cta-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .team-grid {
+        justify-content: space-between;
+    }
+}

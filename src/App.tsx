@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/Landing/LandingPage";
 import MainLayout from "./layouts/MainLayout";
 import Feed from "./features/posts/Feed";
+import AboutPage from "./pages/About/AboutPage";
 
 interface AppProps {
   toggleTheme: () => void;
@@ -15,7 +16,9 @@ const App: React.FC<AppProps> = ({ toggleTheme, mode }) => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LandingPage toggleTheme={toggleTheme} currentMode={mode} />} />
+        
         <Route path="/app" element={<MainLayout toggleTheme={toggleTheme}><Feed /></MainLayout>} />
+        <Route path="/about" element={<AboutPage toggleTheme={toggleTheme} currentMode={mode} /> } />
         {/* add auth routes, signup, login etc , remember we will have both public routes and private routes!*/}
       </Routes>
     </BrowserRouter>
