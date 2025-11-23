@@ -4,10 +4,11 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
+import { Link } from "react-router-dom";
 
 interface HeaderProps {
-    toggleTheme: () => void; // receive toggleTheme from parent
-    currentMode: "light" | "dark"; // optional, to switch icon
+    toggleTheme: () => void;
+    currentMode: "light" | "dark";
 }
 
 const Header: React.FC<HeaderProps> = ({ toggleTheme, currentMode }) => {
@@ -18,16 +19,27 @@ const Header: React.FC<HeaderProps> = ({ toggleTheme, currentMode }) => {
     return (
         <header className="landing-root">
             <nav className="navbar">
+                {/* Logo */}
                 <div className="navbar-left">
-                    <div className="logo">connectsMe</div>
+                    <Link to="/" className="logo">
+                        connectsMe
+                    </Link>
                 </div>
 
                 {/* Desktop links */}
                 <ul className="navbar-links">
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#stories">Stories</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#about">About</a></li>
+                    <li>
+                        <a href="#features">Features</a>
+                    </li>
+                    <li>
+                        <a href="#stories">Stories</a>
+                    </li>
+                    <li>
+                        <a href="#pricing">Pricing</a>
+                    </li>
+                    <li>
+                        <Link to="/about">About</Link>
+                    </li>
                 </ul>
 
                 {/* Desktop actions */}
@@ -43,9 +55,10 @@ const Header: React.FC<HeaderProps> = ({ toggleTheme, currentMode }) => {
                     <Button variant="contained">Join Now</Button>
                 </div>
 
-                {/* Mobile menu button */}
+                {/* Mobile menu toggle */}
                 <IconButton
                     className="navbar-menu"
+                    aria-label="toggle mobile menu"
                     onClick={toggleMobileMenu}
                 >
                     {mobileOpen ? <CloseIcon /> : <MenuIcon />}
@@ -55,10 +68,18 @@ const Header: React.FC<HeaderProps> = ({ toggleTheme, currentMode }) => {
             {/* Mobile dropdown menu */}
             {mobileOpen && (
                 <div className="mobile-menu">
-                    <a href="#features" onClick={toggleMobileMenu}>Features</a>
-                    <a href="#stories" onClick={toggleMobileMenu}>Stories</a>
-                    <a href="#pricing" onClick={toggleMobileMenu}>Pricing</a>
-                    <a href="#about" onClick={toggleMobileMenu}>About</a>
+                    <a href="#features" onClick={toggleMobileMenu}>
+                        Features
+                    </a>
+                    <a href="#stories" onClick={toggleMobileMenu}>
+                        Stories
+                    </a>
+                    <a href="#pricing" onClick={toggleMobileMenu}>
+                        Pricing
+                    </a>
+                    <Link to="/about" onClick={toggleMobileMenu}>
+                        About
+                    </Link>
 
                     <IconButton
                         aria-label="toggle theme"
@@ -92,3 +113,9 @@ const Header: React.FC<HeaderProps> = ({ toggleTheme, currentMode }) => {
 };
 
 export default Header;
+
+
+
+
+
+
