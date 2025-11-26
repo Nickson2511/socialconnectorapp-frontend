@@ -42,7 +42,7 @@ const HeroAbout: React.FC = () => {
                         gridTemplateColumns: getGridTemplateColumns(),
                         gap: 4,
                         alignItems: "center",
-                        maxWidth: "1200px",
+                        maxWidth: "100%",
                         margin: "0 auto",
                     }}
                 >

@@ -6,7 +6,7 @@ const MissionVision: React.FC = () => {
     const isMd = useMediaQuery(theme.breakpoints.up("md"));
     const isLg = useMediaQuery(theme.breakpoints.up("lg"));
 
-    
+
     const getGridTemplateColumns = () => {
         if (isLg) return "repeat(3, 1fr)";
         if (isMd) return "repeat(3, 1fr)";
@@ -55,8 +55,11 @@ const MissionVision: React.FC = () => {
                     sx={{
                         display: "grid",
                         gridTemplateColumns: getGridTemplateColumns(),
-                        gap: 3,
-                        width: "100%",
+                        gap: 4,
+                        alignItems: "center",
+                        maxWidth: "100%",
+                        margin: "0 auto",
+
                     }}
                 >
                     {cards.map((card) => (
