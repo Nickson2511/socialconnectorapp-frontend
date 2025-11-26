@@ -93,7 +93,7 @@ const FooterLanding: React.FC = () => {
                     © {year} connectsMe — All rights reserved.
                 </Typography>
                 <Typography variant="body2" className="footer-country">
-                    Made with ❤️ connectMe
+                    Made with ❤️ connectsMe Team
                 </Typography>
             </div>
         </footer>
