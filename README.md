@@ -1,4 +1,4 @@
-📱 SocialConnectorApp — Frontend (React + TypeScript + MUI + Redux Toolkit)
+📱 connectsMe — Frontend (React + TypeScript + MUI + Redux Toolkit)
 
 A modern social media frontend built using React, TypeScript, Material UI, Redux Toolkit, RTK Query, and Vite.
 
@@ -98,7 +98,7 @@ See ./env.example for default fields.
 
 
 
-📚 SocialConnectorApp — Git & Team Collaboration Guide
+📚 connectsMe — Git & Team Collaboration Guide
 
 1️⃣ Prerequisites
 
