@@ -12,6 +12,7 @@ const HeroAbout: React.FC = () => {
     const theme = useTheme();
     const isMd = useMediaQuery(theme.breakpoints.up("md"));
     const isLg = useMediaQuery(theme.breakpoints.up("lg"));
+    const isDarkMode = theme.palette.mode === "dark";
 
     // Determine grid columns based on screen size
     const getGridTemplateColumns = () => {
@@ -21,8 +22,15 @@ const HeroAbout: React.FC = () => {
     };
 
     return (
-        <section className="about-hero landing-root" aria-label="About hero">
-            {/* Full-width Card */}
+        <section
+            className={`about-hero landing-root`}
+            aria-label="About hero"
+            style={{
+                background: isDarkMode
+                    ? theme.palette.background.default
+                    : "linear-gradient(180deg, rgba(99, 102, 241, 0.04), transparent 30%)",
+            }}
+        >
             <Paper
                 elevation={3}
                 sx={{
@@ -30,10 +38,15 @@ const HeroAbout: React.FC = () => {
                     width: "100%",
                     p: { xs: 2, sm: 3, md: 4 },
                     boxSizing: "border-box",
-                    background: "rgba(255,255,255,0.95)",
-                    border: "1px solid rgba(0,0,0,0.08)",
+                    background: isDarkMode
+                        ? theme.palette.background.paper
+                        : "rgba(255,255,255,0.95)",
+                    border: `1px solid ${isDarkMode ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)"}`,
                     backdropFilter: "blur(8px)",
-                    boxShadow: "0 10px 25px rgba(0,0,0,0.05)",
+                    boxShadow: isDarkMode
+                        ? "0 10px 25px rgba(0,0,0,0.3)"
+                        : "0 10px 25px rgba(0,0,0,0.05)",
+                    color: isDarkMode ? theme.palette.text.primary : "#111",
                 }}
             >
                 <Box
@@ -48,20 +61,54 @@ const HeroAbout: React.FC = () => {
                 >
                     {/* Text + Buttons */}
                     <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-                        <div className="kicker">About connectsMe</div>
-                        <Typography variant="h3" component="h1" className="about-title">
+                        <div
+                            className="kicker"
+                            style={{ color: isDarkMode ? theme.palette.text.secondary : "#6b7280" }}
+                        >
+                            About connectsMe
+                        </div>
+                        <Typography
+                            variant="h3"
+                            component="h1"
+                            className="about-title"
+                            sx={{ color: isDarkMode ? theme.palette.text.primary : "#111" }}
+                        >
                             A community-first network for real professional growth
                         </Typography>
-                        <Typography className="about-sub">
+                        <Typography
+                            className="about-sub"
+                            sx={{ color: isDarkMode ? theme.palette.text.secondary : "#374151" }}
+                        >
                             We connect talent with meaningful opportunities — verified, curated, and community-backed.
                             Build a profile, join a community, and meet the right people for your next step.
                         </Typography>
 
                         <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2, mt: 1 }}>
-                            <Button variant="contained" className="primary-cta">
+                            <Button
+                                variant="contained"
+                                className="primary-cta"
+                                sx={{
+                                    backgroundColor: isDarkMode ? "#3b82f6" : undefined,
+                                    color: isDarkMode ? "#fff" : undefined,
+                                    "&:hover": {
+                                        backgroundColor: isDarkMode ? "#1e3a8a" : undefined,
+                                    },
+                                }}
+                            >
                                 Create a Profile
                             </Button>
-                            <Button variant="outlined" className="secondary-cta">
+                            <Button
+                                variant="outlined"
+                                className="secondary-cta"
+                                sx={{
+                                    borderColor: isDarkMode ? "#3b82f6" : undefined,
+                                    color: isDarkMode ? "#3b82f6" : undefined,
+                                    "&:hover": {
+                                        borderColor: isDarkMode ? "#1e3a8a" : undefined,
+                                        color: isDarkMode ? "#1e3a8a" : undefined,
+                                    },
+                                }}
+                            >
                                 Our Philosophy
                             </Button>
                         </Box>
@@ -75,11 +122,14 @@ const HeroAbout: React.FC = () => {
                             sx={{
                                 p: 3,
                                 borderRadius: 2,
-                                background: "rgba(255,255,255,0.8)",
-                                border: "1px solid rgba(0,0,0,0.06)",
+                                background: isDarkMode
+                                    ? theme.palette.background.default
+                                    : "rgba(255,255,255,0.8)",
+                                border: `1px solid ${isDarkMode ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)"}`,
                                 textAlign: "center",
                                 minWidth: 120,
                                 flex: "1",
+                                color: isDarkMode ? theme.palette.text.primary : "#111",
                             }}
                         >
                             <Typography
@@ -95,7 +145,7 @@ const HeroAbout: React.FC = () => {
                             </Typography>
                             <Typography
                                 variant="body2"
-                                sx={{ color: "#6b7280" }}
+                                sx={{ color: isDarkMode ? theme.palette.text.secondary : "#6b7280" }}
                             >
                                 {s.label}
                             </Typography>
@@ -108,6 +158,8 @@ const HeroAbout: React.FC = () => {
 };
 
 export default HeroAbout;
+
+
 
 
 

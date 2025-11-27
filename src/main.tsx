@@ -7,17 +7,23 @@ import App from "./App";
 import { getTheme } from "./theme";
 
 
-
 const Root = () => {
-
-  
   const [mode, setMode] = useState<"light" | "dark">("light");
-  const toggleTheme = () => setMode((prev) => (prev === "light" ? "dark" : "light"));
+
+  const toggleTheme = () =>
+    setMode((prev) => (prev === "light" ? "dark" : "light"));
 
   useEffect(() => {
+    // keeps your MUI theme switching
     document.documentElement.setAttribute("data-theme", mode);
+
+    // VERY IMPORTANT: add/remove .dark class so your CSS works
+    if (mode === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
   }, [mode]);
-  
 
   return (
     <Provider store={store}>

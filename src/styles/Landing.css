@@ -33,7 +33,6 @@
     min-width: fit-content;
 }
 
-
 @media (max-width: 900px) {
     .hero {
         grid-template-columns: 1fr;
@@ -49,7 +48,6 @@
     .hero-visual {
         height: 280px;
     }
-
 }
 
 .hero-left {
@@ -61,7 +59,6 @@
     font-weight: 700;
     margin-bottom: 1rem;
     color: var(--color-text);
-
 }
 
 .hero-sub {
@@ -77,7 +74,6 @@
     color: var(--color-text);
     margin-bottom: 1.5rem;
 }
-
 
 /* Rotating background/visual */
 .hero-visual {
@@ -104,8 +100,6 @@
     opacity: 1;
     transform: scale(1);
 }
-
-
 
 /* Marquee / Brands */
 .brands-marquee {
@@ -137,7 +131,6 @@
     opacity: 1;
     filter: grayscale(0%);
 }
-
 
 @keyframes marquee {
     0% {
@@ -219,19 +212,16 @@
     box-shadow: 0 20px 40px rgba(0, 0, 80, 0.25);
 }
 
-
 .cta-text {
     flex: 1;
     min-width: 260px;
 }
-
 
 .cta-buttons {
     display: flex;
     gap: 1rem;
     flex-shrink: 0;
 }
-
 
 @media (max-width: 700px) {
     .cta {
@@ -250,8 +240,6 @@
     }
 }
 
-
-
 /* small helpers */
 .kicker {
     text-transform: uppercase;
@@ -266,7 +254,6 @@
     justify-content: center;
 }
 
-
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -279,7 +266,6 @@
     font-weight: 700;
     text-decoration: none;
     color: var(--color-text);
-
 }
 
 .navbar-links {
@@ -322,7 +308,6 @@
     }
 }
 
-
 /* Mobile dropdown menu */
 .mobile-menu {
     display: flex;
@@ -347,99 +332,7 @@
     background-color: var(--color-bg);
 }
 
-/* Deep ConnectsMe Section */
-.connectsme-section {
-    margin: 4rem auto;
-    padding: 2rem 0;
-}
-
-.section-title {
-    font-size: clamp(1.8rem, 3vw, 2.4rem);
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 2.5rem;
-    color: var(--color-text);
-}
-
-/* Card grid: 2 per row on large screens */
-.connectsme-cards {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-}
-
-@media (max-width: 900px) {
-    .connectsme-cards {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width:600px) {
-    .connectsme-card {
-        flex-direction: column;
-        padding: 1rem;
-    }
-
-    .connectsme-img {
-        flex: unset;
-        width: 100%;
-        height: 180px;
-    }
-
-    .connectsme-img img {
-        height: 100%;
-    }
-}
-
-.connectsme-card {
-    background: var(--color-bg);
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
-    display: flex;
-    gap: 1rem;
-    padding: 1rem;
-    transition: transform .25s ease, box-shadow .25s ease;
-}
-
-.connectsme-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 24px 55px rgba(0, 0, 0, 0.12);
-}
-
-.connectsme-img {
-    flex: 0 0 40%;
-}
-
-.connectsme-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 12px;
-}
-
-.connectsme-content {
-    flex: 1;
-}
-
-.connectsme-content h3 {
-    margin: 0 0 .6rem;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--color-text);
-}
-
-.connectsme-content p {
-    color: var(--color-text-soft);
-    line-height: 1.5;
-    margin-bottom: 1rem;
-}
-
-
-
-/* ==========================
-    ConnectsMe Engage Section
-=========================== */
+/* ========================== ConnectsMe Engage Section =========================== */
 .engage-section {
     padding: 4rem 1rem;
     background: linear-gradient(180deg, #f9fafc, #ffffff);
@@ -563,121 +456,6 @@
     }
 }
 
-/* ConnectsMe Engage Section inside Card */
-.engage-section {
-    padding: 3rem 1rem;
-}
-
-.engage-header {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.engage-title {
-    font-weight: 700;
-    color: #1e3a8a;
-    margin-bottom: 0.5rem;
-}
-
-.engage-sub {
-    color: #374151;
-    font-size: 1rem;
-    max-width: 720px;
-    margin: 0 auto;
-}
-
-
-.engage-cards {
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 2.5rem;
-}
-
-.engage-card {
-    background: white;
-    border-radius: 16px;
-    padding: 2rem;
-    width: 280px;
-    text-align: center;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.engage-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12);
-}
-
-.engage-icon {
-    margin-bottom: 1rem;
-}
-
-.engage-card-title {
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: #1e40af;
-}
-
-.engage-card-desc {
-    color: #4b5563;
-    font-size: 0.95rem;
-    line-height: 1.5;
-}
-
-
-.engage-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.engage-btn-primary {
-    background-color: #2563eb;
-    color: white;
-    font-weight: 600;
-    padding: 0.8rem 2rem;
-    border-radius: 999px;
-    text-transform: none;
-    transition: all 0.25s ease;
-}
-
-.engage-btn-primary:hover {
-    background-color: #1e40af;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.engage-btn-secondary {
-    border-color: #2563eb;
-    color: #2563eb;
-    font-weight: 600;
-    padding: 0.8rem 2rem;
-    border-radius: 999px;
-    text-transform: none;
-    transition: all 0.25s ease;
-}
-
-.engage-btn-secondary:hover {
-    background-color: #2563eb;
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-
-
-/* Responsive */
-@media (max-width: 900px) {
-    .engage-cards {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-
 /* 5 visual variations (slightly different styles) */
 .variant-1 {
     background: linear-gradient(180deg, #ffffff, #f8fafc);
@@ -699,10 +477,7 @@
     background: linear-gradient(180deg, #ffffff, #fdf2f8);
 }
 
-
-/* =======================
-    Footer
-========================== */
+/* ======================= Footer ========================== */
 .footer {
     width: 100%;
     margin-top: 5rem;
@@ -794,4 +569,70 @@
 
 .footer-country {
     font-size: 0.9rem;
+}
+
+/* GENERAL DARK MODE FOR LANDING.CSS */
+[data-theme="dark"] .landing-root {
+    background-color: #0f172a;
+    /* dark background */
+    color: #f1f5f9;
+    /* default text color */
+}
+
+/* Hero, Features, and ConnectsMeDeepSection texts */
+[data-theme="dark"] .hero-title,
+[data-theme="dark"] .hero-sub,
+[data-theme="dark"] .hero-desc,
+[data-theme="dark"] .cards h6,
+[data-theme="dark"] .cards p,
+[data-theme="dark"] .connectsme-card h3,
+[data-theme="dark"] .connectsme-card p {
+    color: #f1f5f9 !important;
+    /* light text in dark mode */
+}
+
+/* ConnectsMeDeepSection cards */
+[data-theme="dark"] .connectsme-card {
+    background-color: #1e293b;
+    /* dark slate card background */
+    border-color: #334155;
+    /* subtle border */
+}
+
+/* Make all text readable in dark mode */
+.dark {
+    color: #f1f5f9 !important;
+    /* Light text */
+}
+
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6,
+.dark p,
+.dark span,
+.dark a,
+.dark div,
+.dark li,
+.dark button,
+.dark connectsme-content h3,
+.dark connectsme-content p,
+.dark .MuiTypography-root {
+    color: #f1f5f9 !important;
+    /* Light grey/white */
+}
+
+/* Fix MUI Card content */
+.dark .MuiCard-root {
+    background-color: #1e293b !important;
+    color: #f1f5f9 !important;
+}
+
+/* Fix your custom .card (Features) */
+.dark .card {
+    background: #1e293b !important;
+    color: #f1f5f9 !important;
+    border-color: #334155 !important;
 }

@@ -8,6 +8,7 @@ import {
     DialogActions,
     IconButton,
     Box,
+    useTheme,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
@@ -130,7 +131,12 @@ const communities: Community[] = [
     },
 ];
 
+
+
 const CommunitiesShowcase: React.FC = () => {
+    const theme = useTheme();
+    const isDarkMode = theme.palette.mode === "dark";
+
     const [open, setOpen] = useState(false);
     const [active, setActive] = useState<Community | null>(null);
 
@@ -145,36 +151,70 @@ const CommunitiesShowcase: React.FC = () => {
     };
 
     return (
-        <section className="about-section landing-root" aria-label="Communities showcase">
-            <div className="communities-kicker">Communities We Empower</div>
-            <Typography variant="h5" className="section-title">
+        <section
+            className="about-section landing-root"
+            aria-label="Communities showcase"
+            style={{
+                background: isDarkMode
+                    ? theme.palette.background.default
+                    : "linear-gradient(180deg, rgba(99,102,241,0.04), transparent 30%)",
+                color: isDarkMode ? theme.palette.text.primary : undefined,
+                padding: "2rem 1rem",
+            }}
+        >
+            <div className="communities-kicker" style={{ color: isDarkMode ? theme.palette.text.secondary : undefined }}>
+                Communities We Empower
+            </div>
+
+            <Typography variant="h5" sx={{ mt: 1, mb: 1, color: isDarkMode ? theme.palette.text.primary : undefined }}>
                 A Home for Every Professional
             </Typography>
-            <Typography className="muted">
+
+            <Typography sx={{ mb: 4, color: isDarkMode ? theme.palette.text.secondary : "#6b7280" }}>
                 connectsMe supports diverse communities — bringing experts, creators and workers together.
             </Typography>
 
             <div className="communities-grid">
                 {communities.map((c) => (
-                    <div key={c.key} className="community-card">
-                        <div className="community-image">
-                            <img src={c.img} alt={c.name} loading="lazy" />
-                        </div>
+                    <Box
+                        key={c.key}
+                        className="community-card"
+                        sx={{
+                            background: isDarkMode ? theme.palette.background.paper : "rgba(255,255,255,0.85)",
+                            color: isDarkMode ? theme.palette.text.primary : "#111",
+                            p: 2,
+                            borderRadius: 2,
+                            boxShadow: isDarkMode
+                                ? "0 4px 12px rgba(0,0,0,0.3)"
+                                : "0 4px 12px rgba(14,22,39,0.05)",
+                        }}
+                    >
+                        <Box className="community-image" sx={{ mb: 2 }}>
+                            <img src={c.img} alt={c.name} loading="lazy" style={{ width: "100%", borderRadius: 8 }} />
+                        </Box>
 
-                        <Typography variant="subtitle1" className="community-name">
+                        <Typography variant="subtitle1" className="community-name" sx={{ fontWeight: 600, mb: 1 }}>
                             {c.name}
                         </Typography>
 
-                        <Typography className="community-short muted" variant="body2" sx={{ mb: 1 }}>
+                        <Typography
+                            className="community-short muted"
+                            variant="body2"
+                            sx={{ mb: 2, color: isDarkMode ? theme.palette.text.secondary : "#6b7280" }}
+                        >
                             {c.short}
                         </Typography>
 
-                        <div className="community-actions">
+                        <Box className="community-actions" sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
                             <Button
                                 variant="contained"
-                                className="primary-cta"
                                 size="small"
-                                sx={{ borderRadius: "999px" }}
+                                sx={{
+                                    borderRadius: "999px",
+                                    backgroundColor: isDarkMode ? "#3b82f6" : undefined,
+                                    color: isDarkMode ? "#fff" : undefined,
+                                    "&:hover": { backgroundColor: isDarkMode ? "#1e3a8a" : undefined },
+                                }}
                                 onClick={() => window.location.href = "/signup"}
                             >
                                 Join {c.name}
@@ -182,32 +222,51 @@ const CommunitiesShowcase: React.FC = () => {
 
                             <Button
                                 variant="outlined"
-                                className="secondary-cta"
                                 size="small"
-                                sx={{ borderRadius: "999px" }}
+                                sx={{
+                                    borderRadius: "999px",
+                                    borderColor: isDarkMode ? "#3b82f6" : undefined,
+                                    color: isDarkMode ? "#3b82f6" : undefined,
+                                    "&:hover": {
+                                        borderColor: isDarkMode ? "#1e3a8a" : undefined,
+                                        color: isDarkMode ? "#1e3a8a" : undefined,
+                                    },
+                                }}
                                 onClick={() => handleOpen(c)}
                             >
                                 Learn More
                             </Button>
-                        </div>
-                    </div>
+                        </Box>
+                    </Box>
                 ))}
             </div>
 
-            {/* Modal / Dialog for full description */}
             <Dialog open={open} onClose={handleClose} fullWidth maxWidth="md" scroll="paper">
-                <DialogTitle sx={{ m: 0, p: 2 }}>
+                <DialogTitle
+                    sx={{
+                        m: 0,
+                        p: 2,
+                        background: isDarkMode ? theme.palette.background.default : undefined,
+                        color: isDarkMode ? theme.palette.text.primary : undefined,
+                    }}
+                >
                     {active?.name}
                     <IconButton
                         aria-label="close"
                         onClick={handleClose}
-                        sx={{ position: "absolute", right: 8, top: 8, color: (theme) => theme.palette.grey[500] }}
+                        sx={{ position: "absolute", right: 8, top: 8, color: theme.palette.grey[500] }}
                     >
                         <CloseIcon />
                     </IconButton>
                 </DialogTitle>
 
-                <DialogContent dividers>
+                <DialogContent
+                    dividers
+                    sx={{
+                        background: isDarkMode ? theme.palette.background.default : undefined,
+                        color: isDarkMode ? theme.palette.text.primary : undefined,
+                    }}
+                >
                     <Box sx={{ display: "flex", gap: 2, flexDirection: { xs: "column", sm: "row" } }}>
                         <Box sx={{ minWidth: { sm: 240 }, maxWidth: 320 }}>
                             {active && (
@@ -220,18 +279,31 @@ const CommunitiesShowcase: React.FC = () => {
                         </Box>
 
                         <Box sx={{ flex: 1 }}>
-                            <Typography variant="body1" sx={{ whiteSpace: "pre-line", lineHeight: 1.6 }}>
+                            <Typography
+                                variant="body1"
+                                sx={{ whiteSpace: "pre-line", lineHeight: 1.6, color: isDarkMode ? theme.palette.text.secondary : undefined }}
+                            >
                                 {active?.full}
                             </Typography>
                         </Box>
                     </Box>
                 </DialogContent>
 
-                <DialogActions sx={{ flexWrap: "wrap", gap: 1 }}>
+                <DialogActions
+                    sx={{
+                        flexWrap: "wrap",
+                        gap: 1,
+                        background: isDarkMode ? theme.palette.background.default : undefined,
+                    }}
+                >
                     <Button variant="outlined" sx={{ borderRadius: "999px" }} onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="contained" sx={{ borderRadius: "999px" }} onClick={() => window.location.href = "/signup"}>
+                    <Button
+                        variant="contained"
+                        sx={{ borderRadius: "999px" }}
+                        onClick={() => window.location.href = "/signup"}
+                    >
                         Join {active?.name}
                     </Button>
                 </DialogActions>
@@ -241,7 +313,6 @@ const CommunitiesShowcase: React.FC = () => {
 };
 
 export default CommunitiesShowcase;
-
 
 
 
