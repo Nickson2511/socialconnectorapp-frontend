@@ -30,16 +30,14 @@ const CTA: React.FC = () => (
                     size="large"
                     sx={{
                         borderRadius: "999px",
-                        padding: "12px 28px",
-                        fontSize: "1rem",
+                        px: 4,
+                        py: 1.5,
                         fontWeight: 600,
                         textTransform: "none",
-                        whiteSpace: "nowrap",
-                        backgroundColor: "#ffffff",
-                        color: "#2563eb",
-                        transition: "all 0.25s ease",
+                        color: "#ffffff",
+                        backgroundColor: "#4f46e5",
                         "&:hover": {
-                            backgroundColor: "#e2e8f0",
+                            backgroundColor: "#4338ca",
                             transform: "translateY(-2px)",
                         },
                     }}
