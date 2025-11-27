@@ -21,6 +21,7 @@ const slides = [
     { src: "/assets/brands/catering4.jpg", alt: "Connect with professional Chefs" }
 ];
 
+
 const Hero: React.FC = () => {
     const { index } = useSlideshow(slides.length, 5000);
 
@@ -48,10 +49,7 @@ const Hero: React.FC = () => {
                             communities, and national-wide digital networking.
                         </Typography>
 
-                        {/* Updated Buttons */}
                         <Box sx={{ display: "flex", gap: 2, mt: 3, flexWrap: "wrap" }}>
-                            
-                            {/* Primary Button */}
                             <Button
                                 variant="contained"
                                 size="large"
@@ -75,7 +73,6 @@ const Hero: React.FC = () => {
                                 Get Started
                             </Button>
 
-                            {/* Outline Button */}
                             <Button
                                 variant="outlined"
                                 size="large"
@@ -100,12 +97,10 @@ const Hero: React.FC = () => {
                             >
                                 Learn More
                             </Button>
-
                         </Box>
                     </div>
                 </Card>
 
-                {/* Hero rotating slideshow */}
                 <div className="hero-visual" aria-hidden>
                     {slides.map((s, i) => (
                         <div
@@ -124,14 +119,6 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
-
-
-
-
-
-
-
-
 
 
 

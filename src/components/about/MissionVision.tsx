@@ -5,7 +5,7 @@ const MissionVision: React.FC = () => {
     const theme = useTheme();
     const isMd = useMediaQuery(theme.breakpoints.up("md"));
     const isLg = useMediaQuery(theme.breakpoints.up("lg"));
-
+    const isDarkMode = theme.palette.mode === "dark";
 
     const getGridTemplateColumns = () => {
         if (isLg) return "repeat(3, 1fr)";
@@ -35,8 +35,14 @@ const MissionVision: React.FC = () => {
     ];
 
     return (
-        <section className="about-section landing-root">
-            {/* Full-width Paper */}
+        <section
+            className="about-section landing-root"
+            style={{
+                background: isDarkMode
+                    ? theme.palette.background.default
+                    : "linear-gradient(180deg, rgba(99,102,241,0.04), transparent 30%)",
+            }}
+        >
             <Paper
                 elevation={3}
                 sx={{
@@ -44,13 +50,16 @@ const MissionVision: React.FC = () => {
                     width: "100%",
                     p: { xs: 2, sm: 3, md: 4 },
                     boxSizing: "border-box",
-                    background: "rgba(255,255,255,0.95)",
-                    border: "1px solid rgba(0,0,0,0.08)",
+                    background: isDarkMode
+                        ? theme.palette.background.paper
+                        : "rgba(255,255,255,0.95)",
+                    border: `1px solid ${isDarkMode ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)"}`,
                     backdropFilter: "blur(8px)",
-                    boxShadow: "0 10px 25px rgba(0,0,0,0.05)",
+                    boxShadow: isDarkMode
+                        ? "0 10px 25px rgba(0,0,0,0.3)"
+                        : "0 10px 25px rgba(0,0,0,0.05)",
                 }}
             >
-                {/* Grid without maxWidth to occupy full width */}
                 <Box
                     sx={{
                         display: "grid",
@@ -59,7 +68,6 @@ const MissionVision: React.FC = () => {
                         alignItems: "center",
                         maxWidth: "100%",
                         margin: "0 auto",
-
                     }}
                 >
                     {cards.map((card) => (
@@ -69,20 +77,31 @@ const MissionVision: React.FC = () => {
                             sx={{
                                 p: 3,
                                 borderRadius: 2,
-                                background: "rgba(255,255,255,0.85)",
-                                border: "1px solid rgba(0,0,0,0.06)",
-                                boxShadow: "0 6px 18px rgba(14,22,39,0.03)",
+                                background: isDarkMode
+                                    ? theme.palette.background.default
+                                    : "rgba(255,255,255,0.85)",
+                                border: `1px solid ${isDarkMode ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)"}`,
+                                boxShadow: isDarkMode
+                                    ? "0 6px 18px rgba(0,0,0,0.2)"
+                                    : "0 6px 18px rgba(14,22,39,0.03)",
                                 display: "flex",
                                 flexDirection: "column",
                                 justifyContent: "space-between",
                                 minHeight: 180,
+                                color: isDarkMode ? theme.palette.text.primary : "#111",
                             }}
                         >
                             <Box>
-                                <Typography variant="h5" sx={{ fontWeight: 700, mb: 1 }}>
+                                <Typography
+                                    variant="h5"
+                                    sx={{ fontWeight: 700, mb: 1, color: isDarkMode ? theme.palette.text.primary : "#111" }}
+                                >
                                     {card.title}
                                 </Typography>
-                                <Typography variant="body1" sx={{ color: "#374151" }}>
+                                <Typography
+                                    variant="body1"
+                                    sx={{ color: isDarkMode ? theme.palette.text.secondary : "#374151" }}
+                                >
                                     {card.text}
                                 </Typography>
                             </Box>
@@ -90,6 +109,37 @@ const MissionVision: React.FC = () => {
                                 <Button
                                     variant={card.buttonVariant as "contained" | "outlined"}
                                     className={card.buttonVariant === "contained" ? "primary-cta" : "secondary-cta"}
+                                    sx={{
+                                        // Combining all color logic in one property
+                                        color:
+                                            isDarkMode
+                                                ? card.buttonVariant === "contained"
+                                                    ? "#fff"
+                                                    : "#3b82f6"
+                                                : undefined,
+                                        backgroundColor:
+                                            isDarkMode && card.buttonVariant === "contained"
+                                                ? "#3b82f6"
+                                                : undefined,
+                                        borderColor:
+                                            isDarkMode && card.buttonVariant === "outlined"
+                                                ? "#3b82f6"
+                                                : undefined,
+                                        "&:hover": {
+                                            backgroundColor:
+                                                isDarkMode && card.buttonVariant === "contained"
+                                                    ? "#1e3a8a"
+                                                    : undefined,
+                                            borderColor:
+                                                isDarkMode && card.buttonVariant === "outlined"
+                                                    ? "#1e3a8a"
+                                                    : undefined,
+                                            color:
+                                                isDarkMode && card.buttonVariant === "outlined"
+                                                    ? "#1e3a8a"
+                                                    : undefined,
+                                        },
+                                    }}
                                 >
                                     {card.buttonText}
                                 </Button>
@@ -103,8 +153,6 @@ const MissionVision: React.FC = () => {
 };
 
 export default MissionVision;
-
-
 
 
 
